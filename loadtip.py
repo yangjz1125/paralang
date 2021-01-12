@@ -19,14 +19,14 @@ class loadingTips:
     with open(src, "rt") as f:
       self.tipsList.extend(func(f))
   def writeTips(self, lang, level = 0):
-    with open(self.name, "wt") as f:
+    with open(self.name, "wt", encoding = 'utf-8-sig') as f:
       sc = 'l_' + lang + ':\n'
       t = 1
       for s in self.tipsList:
         if s != '':
           sc = sc + ' LOADING_TIP_%d:%d: "%s"\n' % (t, level, s)
           t = t + 1
-      f.write(sc,)
+      f.write(sc)
 
 if __name__ == "__main__":
     lt = loadingTips("loading_tips_l_test.yml")
